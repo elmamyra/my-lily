@@ -46,3 +46,33 @@ fingeringSlideEngraver =
                    glissandi)
 
               (set! fingerings '()))))))
+
+
+%{\layout {
+  \context {
+    \Voice
+    \consists \fingeringSlideEngraver
+  }
+}
+
+\relative c {
+  \override Fingering #'staff-padding = #'()
+  \override Glissando #'to-fingerings = ##t
+  \set glissandoMap = #'((0 . 0))
+  \set fingeringOrientations = #'(down)
+  <fis-\tweak #'transparent ##t -1 d'>4\glissando
+  <g-1 d'>
+}
+
+\relative c'' {
+  \key f \major
+  \time 3/4
+  \override Glissando #'to-fingerings = ##t
+  <d-3 f-1>8[\glissando
+  \set glissandoMap = #'((1 . 1))
+  <e-3 g-1>\glissando <f-2 a-1>\glissando
+  \unset glissandoMap
+  <e-3 g-1>\glissando <d-3 f-1>8. <c-1 e-0>16]
+}
+
+%}
