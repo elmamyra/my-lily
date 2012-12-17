@@ -1,4 +1,3 @@
-#(define smallYmove 0.2)
 
 setSnUp = { \set stringNumberOrientations = #'(up) }
 setSnDo = { \set stringNumberOrientations = #'(down) }
@@ -43,24 +42,7 @@ snTwkMove = #(define-music-function (parser location offset num) (pair? number?)
        m)
      )
 
-snTwkSmallYmove = #(define-music-function (parser location num) (number?)
-        (let ((m (make-music 'StringNumberEvent
-                          'string-number num)))
-       (set! (ly:music-property m 'tweaks)
-             (acons 'Y-offset smallYmove
-                    (ly:music-property m 'tweaks)))
-       m)
-     )
 
-
-snTwkMove = #(define-music-function (parser location offset num) (pair? number?)
-        (let ((m (make-music 'StringNumberEvent
-                          'string-number num)))
-       (set! (ly:music-property m 'tweaks)
-             (acons 'extra-offset offset
-                    (ly:music-property m 'tweaks)))
-       m)
-     )
 
 snTwkYMove = #(define-music-function (parser location y num) (number? number?)
         (let ((m (make-music 'StringNumberEvent
@@ -72,4 +54,13 @@ snTwkYMove = #(define-music-function (parser location y num) (number? number?)
      )
 
 
-
+snSpanner =
+#(define-music-function (parser location StringNumber) (string?)
+  #{
+    \override TextSpanner.style = #'solid
+    \override TextSpanner.font-size = #-5
+    \override TextSpanner.bound-details.left.stencil-align-dir-y = #CENTER
+    \override TextSpanner.bound-details.right.text = \markup { \draw-line #'( 0 . -1) }
+    \override TextSpanner.bound-details.right.padding = #-3
+    \override TextSpanner.bound-details.left.text = \markup { \circle \number $StringNumber }
+  #})

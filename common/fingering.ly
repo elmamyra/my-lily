@@ -1,5 +1,3 @@
-#(define smallYmove 0.2)
-
 setFgUp = { \set fingeringOrientations = #'(up) }
 setFgDo = { \set fingeringOrientations = #'(down) }
 setFgLe = { \set fingeringOrientations = #'(left) }
@@ -28,11 +26,18 @@ fgAlignLe = { \override Fingering #'self-alignment-X = #LEFT }
 fgAlignCe = { \override Fingering #'self-alignment-X = #CENTER }
 
 fgNoSpace = { \once \override Fingering #'extra-spacing-width = #'(+inf.0 . -inf.0) }
+fgNoSpaceOn = { \override Fingering #'extra-spacing-width = #'(+inf.0 . -inf.0) }
+fgNoSpaceOff = { \revert Fingering #'extra-spacing-width }
 
+fgPrio = { \once \override Fingering #'script-priority = #-1000 }
+
+fgAllPad = #(define-music-function (parser location val )( number?) #{\override Fingering #'padding = $val #})
 fgPad = #(define-music-function (parser location val )( number?) #{\once \override Fingering #'padding = $val #})
 fgMove = #(define-music-function (parser location x y )( number? number? ) #{\once \override Fingering #'extra-offset = #(cons x y) #})
 fgXmove = #(define-music-function (parser location x)( number?)#{\once \override Fingering #'extra-offset = #(cons x 0)	#})
 fgYmove = #(define-music-function (parser location y)( number?)#{\once \override Fingering #'extra-offset = #(cons 0 y)	#})
+fgMoveSharp = { \fgMove #1.5 #-2.2 }
+fgMoveNat = { \fgMove #1.1 #-2.2 }
 
 fgTwkMove = #(define-music-function (parser location offset num) (pair? number?)
         (let ((m (make-music 'FingeringEvent
@@ -43,21 +48,12 @@ fgTwkMove = #(define-music-function (parser location offset num) (pair? number?)
        m)
      )
 
-fgTwkSmallYmove = #(define-music-function (parser location num) (number?)
+
+fgTwkXMove = #(define-music-function (parser location x num) (number? number?)
         (let ((m (make-music 'FingeringEvent
                           'digit num)))
        (set! (ly:music-property m 'tweaks)
-             (acons 'Y-offset smallYmove
-                    (ly:music-property m 'tweaks)))
-       m)
-     )
-
-
-fgTwkMove = #(define-music-function (parser location offset num) (pair? number?)
-        (let ((m (make-music 'FingeringEvent
-                          'digit num)))
-       (set! (ly:music-property m 'tweaks)
-             (acons 'extra-offset offset
+             (acons 'extra-offset (cons x 0)
                     (ly:music-property m 'tweaks)))
        m)
      )
