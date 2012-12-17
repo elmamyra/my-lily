@@ -99,7 +99,7 @@ upper = \relative c'' {
   r d( b) gs e4 | % 66
   r8 gs d' e fs( e) | % 67
   r d( cs) a e4 | % 68
-  r8 e'-0 b'(-4 a)-2 e-0 \glisstofing <cs\3>-3\glissando | % 69
+  r8 e'-0 b'(-4 a)-2 e-0 <cs\3>-3 | % 69
   b-0 d-2 gs(-4 fs)-1 d b-0 | % 70
   a( gs) fs' e \slurUp <gs, d'>( b) \slurDown | % 71
   a4 r r | % 72
@@ -107,7 +107,7 @@ upper = \relative c'' {
   R | % 74
   <a-3 c-2 fs-4>4 <c ds a'> <ds fs c'> | % 75
   <fs a ds>2. | % 76
-  \snle <fs'\2\harmonic>-\harm "VII"  | % 77
+  \snle \once \override NoteHead.style = #'harmonic <fs'\2>-\harm "VII"  | % 77
   r8. <cs,-3 e-1 a-2 e'-4>16 q2 | % 78
   r4 <b-3 ds-4 fs-1> <b-3 d-2 gs-4> | % 79
   \override TextScript #'script-priority = #10000 <a cs a'-4>2-\barreText "½BII" \fermata r4 | \bar "|."% 80
@@ -218,6 +218,11 @@ lower = \relative c {
     \context {
       \Voice
       \consists \fingeringSlideEngraver
+    }
+    \context {
+      \Score
+      \consists \fingeringSlideEngraver
+      \remove "Bar_number_engraver"
     }
   }
   %\midi {
