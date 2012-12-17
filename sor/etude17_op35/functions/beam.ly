@@ -1,0 +1,1 @@
+moveBeam = #(define-music-function (parser location le ri)( number? number?)#{ \once \override Beam #'positions = #(cons le ri) #})
