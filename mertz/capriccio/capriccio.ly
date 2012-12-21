@@ -43,7 +43,7 @@ upper = \relative c'' {
   \slurDown \setFgLe \fgInStaff \setRhUp \rhAddStemSupport \setSnDo \snInStaff \snAddStemSupport
   \tempo "Presto"
   <a-2 d-3 f-4\rh #4 >16 f'\rh #3 f\rh #2 f\rh #3  f(\rh #4 e) d\rh #2 e\rh #3 
-    f\rh #4 f\rh #3 f\rh #2 f\rh #3 f(\rh #4 e) ds\rh #2 e\rh #3 | % 1
+    f\rh #4 f\rh #3 f\rh #2 f\rh #3 f(\rh #4 e) d\rh #2 e\rh #3 | % 1
   f(\rh #4 e) d\rh #2 e\rh #3 f(\rh #4 e) d\rh #2 e\rh #3 f4\rh #4 r | % 2
   <bf-2\rh #4 >16 bf\rh #3 bf\rh #2 bf\rh #3 bf(\rh #4 <a-1>) <g-4\2\rh #2 > a\rh #3 bf bf bf bf bf( a) g a | % 3
   bf(\rh #4 a) g\rh #2 a\rh #3 bf(\rh #4 a) g\rh #2 a\rh #3 bf8.\rh #4 bf16-\markIt "ritard." <bf-2>(\glissando d) <f,-1^\3>8 | % 4
@@ -67,13 +67,13 @@ upper = \relative c'' {
   g, d' e d bf d e d a d e d gs, d' e d | % 22
   g,! d' e d g,,! d'' e d a, d' e d bf, d' e d | % 23
   a, f'' a-> f a, f' a-> f a,, a' d f a4 | % 24
-  <a d>-> <a f'>-> <a d>-> <a d f>-> | % 25
-  ef ef2-> d4 | % 26
+  <a d>-> <a f'>-> <a, d>-> <a d f>-> | % 25
+  ef' ef2-> d4 | % 26
   cs cs2-> cs4 | % 27
   d8 d,16 a' d, gs-> d a'-> d, bf'-> d, a'-> <a f'>8 d | % 28
-  \fgup <cs-2>8 g!16 c bf!-> c a c gs c g c f, c' e, c' | % 29
+  \fgup <cs-2>8 g!16 cs bf!-> c a c gs c g c f, c' e, c' | % 29
   d8 d,16 a' d, gs-> d a'-> d, bf'-> d, a'-> <a f'>8 d | % 30
-  cs g!16 c bf!-> c a c gs c g c f, c' e, c' | % 31
+  cs g!16 cs bf!-> c a c gs c g c f, c' e, c' | % 31
   d, <d'-4> a, a' d, f' a,, d' e, \fgup <g! cs-3> a, <g' e'> e <g f'> a, <g' e'> | % 32
   d d' a, a' d, f' a,, d' e, <g! cs> a, <g' e'> e <g f'> a, <g' e'> | % 33
   d'8 r \fgup \snMove #-1.7 #-.5 <c!-3\3>16 <d-1> d d \fgup <b-2> d d d \fgup <bf-3> <d-4> d d | % 34
@@ -104,7 +104,7 @@ middle = \relative c'' {
   r \arpPos #-1 #2 c\arpeggio af c r c af c r c af c df(^> c) af c | % 6
   \restPosOff \force #1 \restMove #1.4 g\rest \addAccSpace #1 af f af e\rest af f af b\rest af f af e\rest af f af | % 7
   \once \restPos #-.9 r g e g e\rest g e g s2 | % 8
-  \restPos #-.5 r16 c b c df(^> c) bf c r c bf c r c bf c | % 9
+  \restPos #-.5 r16 c bf c df(^> c) bf c r c bf c r c bf c | % 9
   r c af c r c af c r bf <g-3> bf r bf g bf | % 10
   \restPos #-1.5 r <a-2> <f-3> a r a f a r g e g \restPosOff e\rest g e g | % 11
   s1*6 | % 12-17
