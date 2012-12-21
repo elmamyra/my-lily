@@ -1,9 +1,12 @@
 barreText = #(define-music-function
-     (parser location string)
-     (markup?)
-   #{ -\markup {\smaller \halign #CENTER #string } #})
+     (parser location str)
+     (string?)
+     #{ -\markup {\smaller \center-align {\hspace #.6  \concat {"B" $str " "}}} #})
 
-
+dbarreText = #(define-music-function
+     (parser location str)
+     (string?)
+   #{ -\markup {\smaller \halign #CENTER \concat {"½B" $str " "}} #})
 
 
 
