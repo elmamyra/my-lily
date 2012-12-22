@@ -90,7 +90,7 @@ upper = \relative c'' {
   <bf d e> <b d e> <a d e> <a cs a'> | % 45
   d'4\rest d d2-> | % 46
   a4\rest a a2-> | % 47
-  d,16 a d f d a a, a' f, <a'-2> <d-4> f d a a, a' | % 48
+  d,,16 a' d f d a a, a' f, <a'-2> <d-4> f d a a, a' | % 48
   d, <a' d f> a, q d q a q d q a q f <a'-2 d-4 f> a, <a' d f-1> | % 49
   q4 r <d,-4>16-\markIt "ritard." \fgdo <f-2> f f f( e) d <e-1> | % 50
   <f-2>1\fermata \bar "|."
