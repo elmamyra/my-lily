@@ -1,4 +1,6 @@
 glisstofing = { \once \override Glissando #'to-fingerings = ##t }
+glisstofingOn = { \override Glissando #'to-fingerings = ##t }
+glisstofingOff = { \revert Glissando #'to-fingerings }
 glissmap = #(define-music-function (parser location x y )( number? number? ) #{ \once \set glissandoMap = #(list (cons x y)) #})
 glissLePad = #(define-music-function (parser location val )( number? ) #{ \once \override Glissando.bound-details.left.padding = $val #})
 glissRiPad = #(define-music-function (parser location val )( number? ) #{ \once \override Glissando.bound-details.right.padding = $val #})

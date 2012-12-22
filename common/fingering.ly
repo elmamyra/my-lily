@@ -36,8 +36,8 @@ fgPad = #(define-music-function (parser location val )( number?) #{\once \overri
 fgMove = #(define-music-function (parser location x y )( number? number? ) #{\once \override Fingering #'extra-offset = #(cons x y) #})
 fgXmove = #(define-music-function (parser location x)( number?)#{\once \override Fingering #'extra-offset = #(cons x 0)	#})
 fgYmove = #(define-music-function (parser location y)( number?)#{\once \override Fingering #'extra-offset = #(cons 0 y)	#})
-fgMoveSharp = { \fgMove #1.5 #-2.2 }
-fgMoveNat = { \fgMove #1.1 #-2.2 }
+fgMoveSharp = { \fgNoSpace \fgMove #1.7 #-2.2 }
+fgMoveNat = { \fgNoSpace \fgMove #1.1 #-2.2 }
 
 fgTwkMove = #(define-music-function (parser location offset num) (pair? number?)
         (let ((m (make-music 'FingeringEvent

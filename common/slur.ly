@@ -1,0 +1,1 @@
+slurPos = #(define-music-function (parser location le ri )( number? number? ) #{ \once \override Slur.positions = #(cons le ri) #})
