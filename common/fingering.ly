@@ -31,8 +31,8 @@ fgNoSpaceOff = { \revert Fingering #'extra-spacing-width }
 
 fgPrio = { \once \override Fingering #'script-priority = #-1000 }
 
-fgAllPad = #(define-music-function (parser location val )( number?) #{\override Fingering #'padding = $val #})
-fgPad = #(define-music-function (parser location val )( number?) #{\once \override Fingering #'padding = $val #})
+fgAllPad = #(define-music-function (parser location val )( number?) #{\override Score.Fingering #'padding = $val #})
+fgPad = #(define-music-function (parser location val )( number?) #{\once \override Staff.Fingering #'padding = $val #})
 fgMove = #(define-music-function (parser location x y )( number? number? ) #{\once \override Fingering #'extra-offset = #(cons x y) #})
 fgXmove = #(define-music-function (parser location x)( number?)#{\once \override Fingering #'extra-offset = #(cons x 0)	#})
 fgYmove = #(define-music-function (parser location y)( number?)#{\once \override Fingering #'extra-offset = #(cons 0 y)	#})
@@ -67,3 +67,44 @@ fgTwkYMove = #(define-music-function (parser location y num) (number? number?)
        m)
      )
 
+
+#(define (fgGetNoteHead fgGrob)
+    (let ((xparent (ly:grob-parent fgGrob 0))
+          (yparent (ly:grob-parent fgGrob 1))
+          
+         )
+      
+      (if (equal? (assoc-ref (ly:grob-property xparent 'meta) 'name) 'NoteHead)
+           xparent
+           yparent
+      )
+  
+
+    )
+   
+)
+fgAutoXPad = #(define-music-function (parser location pad )( number? )
+        #{
+          \override Score.Fingering.padding = #(lambda (grob)
+              (let* ((noteHead (fgGetNoteHead grob))
+                      
+                      
+                     (staffPos (ly:grob-property noteHead 'staff-position))
+                     (parentName (assoc-ref (ly:grob-property noteHead 'meta) 'name))
+                     
+                     (axis (ly:grob-property grob 'side-axis))
+                     
+                    )
+                ;(display parentName)
+                ; (if (equal? parentName 'FingeringColumn)
+;                     (set! (ly:grob-parent grob 1))
+;                 )
+                
+                (if (and (= axis 0) (or (< staffPos -5) (> staffPos 5)))
+                    (+ pad .2)
+                    pad
+                )
+             )
+           )
+        #}
+   )  
