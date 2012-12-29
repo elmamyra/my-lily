@@ -142,8 +142,8 @@ middle = \relative c' {
     r \addSpace <e-2\rh 2> <b'-0\rh 3> g' e, b' g' e, b' g' <e,-2> <cs'-3> | % 9
     r <a-1> \fgle <d-3> fs a, d fs a, d \voiceThree d, a' d \voiceThree | % 10
     \voiceThree fs, <c'-3> <d-1> \voiceTwo <a'-4> c, d a' c, d \moveBeam #-2 #-2 a' c, d | % 11
-    \setFgLe <a'-4> <b,-2> <d-1> \dbarre "III" g\stasp b, d g b, d \voiceThree g, b d\stosp \voiceTwo | % 12
-    \voiceThree \barre "III" r\stasp <b-2> d \voiceTwo <b'-4> b, d b' b, d b' b, d | % 13
+    \setFgLe <a'-4> <b,-2> \barre "III" <d-1>\stasp  g b, d g b, d \voiceThree g, b d \voiceTwo | % 12
+    \voiceThree r <b-2> d \voiceTwo <b'-4> b, d b' b, d b' b, d | % 13
     <b'-4> <c,-2> <e-3> a c, e a c, e \voiceThree c, c' e\stosp \voiceTwo | % 14
     \dbarre "III" r\stasp  bf <e-3> g bf, e g bf, e g bf, e\stosp | % 15
     \moveBeam #-1.8 #-2.2 g <a,-1> <d-3> fs a, d fs a, d \voiceThree d, a' d \voiceTwo | % 16
@@ -157,7 +157,7 @@ middle = \relative c' {
     <fs-4> a, <c-1> g' <g,-0> <b-0> g' g, b \voiceThree e, g b \voiceTwo | % 24
     \voiceThree \dbarre "I" r\stasp gs <d'-4> \voiceTwo f gs, d' f gs, d' f gs, d' | % 25
     f a, d\stosp e a, <c-1> \voiceThree a, <c'-2> <e-3> \voiceTwo <a-4> c, e | % 26
-    a <b,-2> <d-3> g^\barreText "III" b, d <g-4> <a,-2> <c-1> <fs-3> a, c | % 27
+    a <b,-3> <d-1> <g-2> b, d <g-4> <a,-2> <c-1> <fs-3> a, c | % 27
     r g b \voiceThree d, g b b, g' b d, g b \voiceTwo | % 28
     s1. | % 29
     r8 <e,-1> <b'-3> <d-2> e, b' gs' e, b' d e, b' | % 30
